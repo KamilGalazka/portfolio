@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kamil Gałązka - personal portfolio</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="dist/css/lightbox.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&family=Roboto:wght@900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div id="home" class="container">
+        <nav>
+            <div class="menu">
+                <ul>
+                    <li><a class="reload" href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <header>
+            <h2>Hi, my name is</h2>
+            <h1>
+                <span class="firstLetters">K</span>amil
+                <span class="firstLetters">G</span>ałązka
+            </h1>
+            <h2>candidate for the position of junior front-end developer</h2>
+            <img src="img/foto.png" alt="fotka" />
+        </header>
+        <section id="about" class="about">
+            <div class="aboutMeText">
+                <h1>About me</h1>
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quod,
+                    blanditiis, quaerat dolorum harum rem odio tempora repudiandae vero
+                    omnis, ipsum architecto? Ipsum culpa adipisci inventore non
+                    explicabo quam hic. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Ea quod, blanditiis, quaerat dolorum harum rem
+                    odio tempora repudiandae vero omnis, ipsum architecto?
+                </h3>
+            </div>
+            <div class="aboutMePhotos">
+                <a href="img/tatry1.jpg" data-lightbox="image-1"><img src="img/tatry1.jpg" alt="" /></a>
+                <a href="img/tatry2.jpg" data-lightbox="image-1"><img src="img/tatry2.jpg" alt="" /></a>
+                <a href="img/tatry3.jpg" data-lightbox="image-1"><img src="img/tatry3.jpg" alt="" /></a>
+                <a href="img/tatry4.jpg" data-lightbox="image-1"><img src="img/tatry4.jpg" alt="" /></a>
+                <a href="img/tatry5.jpg" data-lightbox="image-1"><img src="img/tatry5.jpg" alt="" /></a>
+            </div>
+        </section>
+        <section id="skills" class="skills">
+            <h1>Skills</h1>
+            <button class='showSkills'>Click here</button>
+            <div id="inactive" class="skillsContainer">
+                <div><img src="img/html_logo.png" alt="HTML logo"></div>
+                <div><img src="img/css_logo.png" alt="CSS logo"></div>
+                <div><img src="img/js_logo.png" alt="JS logo"></div>
+                <div><img src="img/jquery_logo.png" alt="JQUERY logo"></div>
+                <div><img src="img/sass_logo.png" alt="SASS logo"></div>
+                <div><img src="img/git_logo.png" alt="GIT logo"></div>
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio">
+            <h1>Portfolio</h1>
+            <div class="portfolioContainer">
+                <div class="project1">
+                    <h2>Project #1</h3>
+                </div>
+                <div class="project2">
+                    <h2>Project #2</h3>
+                </div>
+                <div class="project3">
+                    <h2>Project #3</h3>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <h1>Contact</h1>
+            <div class="contactCointainer">
+                <div class="findMe">
+                    <div class="findMeBox">
+                        <p>Location: Łódź, Poland</p>
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="findMeBox">
+                        <p>email: kamilg332@gmail.com</p>
+                        <i class="fas fa-at"></i>
+                    </div>
+                    <div class="findMeBox">
+                        <p>Linkedin</p>
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="findMeBox">
+                        <p>GIT:</p>
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                </div>
+                <div class="textMe">
+                    <form id="form" class="topBefore">
+                        <input id="name" type="text" placeholder="NAME">
+                        <input id="email" type="text" placeholder="E-MAIL">
+                        <textarea id="message" type="text" placeholder="MESSAGE"></textarea>
+                        <input id="submit" type="submit" value="SEND">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>Kamil Gałązka 2021</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="dist/js/lightbox.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        lightbox.option({
+            albumLabel: "Tatry %1 z %2",
+            disableScrolling: true,
+            maxWidth: 788,
+            wrapAround: true
+        });
+    </script>
+</body>
+
+</html>
