@@ -1,435 +1,519 @@
+:root {
+  --primary-color: #141415;
+  --secondary-color: #141415;
+  --font-color-nav: #fca311;
+  --font-color: white;
+  --contact-border-color: #ebc48a;
+}
+
+[data-theme="light"] {
+  --primary-color: #ecf8f8;
+  --secondary-color: #eee4e1;
+  --font-color-nav: #fc8600;
+  --font-color: black;
+  --contact-border-color: #fc9b00;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    max-width: 1600px;
-    font-family: 'Raleway', sans-serif;
-    margin: 0 auto;
-    background-color: #141415;
+  max-width: 1600px;
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif;
 }
 
 .container {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    40deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
 }
 
 /* Navigation on the big screen */
 nav {
-    position: relative;
-    flex-basis: 10vh;
-    overflow: hidden;
-    width: 100%;
-    border-bottom: 1px solid white;
+  position: relative;
+  flex-basis: 10vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 nav div.menu {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 100%;
 }
 
-ul {
-    display: flex;
-    list-style: none;
+nav ul {
+  display: flex;
+  list-style: none;
 }
 
-li {
-    flex-basis: 10%;
-    line-height: 10vh;
+nav li {
+  flex-basis: 15%;
+  overflow: hidden;
+}
+
+nav div.button-nav {
+  line-height: 10vh;
+  position: relative;
 }
 
 nav a {
-    text-decoration: none;
-    font-size: 24px;
-    color: white;
-    font-weight: 200;
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--font-color-nav);
+  font-weight: 500;
 }
 
-nav a:hover {
-    font-size: 26px;
+nav div.underline {
+  position: absolute;
+  top: 65px;
+  left: -120px;
+  height: 2px;
+  width: 110px;
+  background-color: var(--font-color-nav);
+  transition: 0.3s;
+}
+
+nav div.button-nav:hover div.underline {
+  left: 0px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-top: 38px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--font-color-nav);
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--font-color);
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 /* HEADER SECTION */
 header {
-    position: relative;
-    flex-basis: 90vh;
-    width: 100%;
-    max-height: 650px;
-    color: white;
-    overflow: hidden;
+  position: relative;
+  flex-basis: 90vh;
+  width: 100%;
+  max-height: 650px;
+  overflow: hidden;
+  color: var(--font-color);
 }
 
 header img {
-    position: absolute;
-    top: 5%;
-    right: -8%;
-    opacity: 0.6;
-}
-
-header h1 {
-    position: absolute;
-    top: 30%;
-    left: 8%;
-    font-size: 50px;
-    line-height: 100px;
-    animation: nameAnimationH1 2s linear alternate infinite both;
+  position: absolute;
+  top: 5%;
+  right: -8%;
+  opacity: 1;
 }
 
 header h2 {
-    font-weight: 200;
-    font-size: 30px;
+  position: absolute;
+  top: 30%;
+  left: 8%;
+  line-height: 100px;
+  font-size: 50px;
+  animation: nameAnimationH1 2s ease-in-out alternate infinite both;
 }
 
-header h2:nth-of-type(1),
-h2:nth-of-type(2) {
-    position: absolute;
-    top: 20%;
-    left: 3%;
-    animation: nameAnimationH2 1s linear both;
+header h3 {
+  font-weight: 200;
+  font-size: 30px;
 }
 
-header h2:nth-of-type(2) {
-    top: 50%;
-    animation-delay: 1s;
+header h3:nth-of-type(1),
+h3:nth-of-type(2) {
+  position: absolute;
+  top: 20%;
+  left: 1%;
+  animation: nameAnimationH2 1s ease-in-out both;
 }
 
-.firstLetters {
-    font-size: 80px;
-    margin-left: 10px
+header h3:nth-of-type(2) {
+  top: 50%;
+  animation-delay: 1s;
+}
+
+.first-letters {
+  margin-left: 10px;
+  font-size: 80px;
 }
 
 @keyframes nameAnimationH1 {
-    0% {
-        left: 7.5%;
-    }
+  0% {
+    left: 7.5%;
+  }
 
-    50% {
-        left: 8%;
-    }
+  50% {
+    left: 8%;
+  }
 
-    100% {
-        left: 8.5%;
-    }
+  100% {
+    left: 8.5%;
+  }
 }
 
 @keyframes nameAnimationH2 {
-    0% {
-        left: -50%;
-    }
+  0% {
+    left: -50%;
+  }
 
-    100% {
-        left: 3%;
-    }
+  100% {
+    left: 3%;
+  }
 }
 
 /* ABOUT SECTION */
 .about {
-    display: flex;
-    flex-basis: 100vh;
-    width: 100%;
-    background-color: white;
-    max-height: 650px;
+  display: flex;
+  flex-basis: 100vh;
+  width: 100%;
+  max-height: 650px;
+  background-color: white;
 }
 
-.about div.aboutMeText {
-    flex-basis: 40%;
-    height: 100%;
-    padding: 50px 10px 0 30px;
+.about div.about-me-text {
+  flex-basis: 40%;
+  height: 100%;
+  padding: 50px 10px 0 30px;
 }
 
-.about div.aboutMeText h1 {
-    font-size: 35px;
-    font-family: Roboto;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
+.about div.about-me-text h2 {
+  margin-bottom: 30px;
+  font-size: 35px;
+  font-family: Roboto;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
-.about div.aboutMeText h3 {
-    line-height: 50px;
-    font-size: 26px;
-    text-align: justify;
-
+.about div.about-me-text h3 {
+  line-height: 50px;
+  text-align: justify;
+  font-size: 26px;
 }
 
-.about div.aboutMePhotos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-basis: 60%;
-    padding: 20px 0;
+.about div.about-me-text h3 p {
+  padding: 20px;
 }
 
-.about div.aboutMePhotos a {
-    position: relative;
-    overflow: hidden;
-    flex-basis: 40%;
-    height: 30%;
-    box-shadow: 0 0 3px 3px black;
+.about div.about-me-photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-basis: 60%;
+  padding: 20px 0;
 }
 
-.about div.aboutMePhotos img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
+.about div.about-me-photos a {
+  position: relative;
+  flex-basis: 40%;
+  height: 30%;
+  overflow: hidden;
+  box-shadow: 0 0 3px 3px #14213d;
+}
+
+.about div.about-me-photos img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
 }
 
 /* SKILLS SECTION */
 .skills {
-    flex-basis: 100vh;
-    position: relative;
-    width: 100%;
-    max-height: 650px;
+  flex-basis: 100vh;
+  position: relative;
+  width: 100%;
+  max-height: 650px;
 }
 
-.skills h1 {
-    font-size: 40px;
-    font-family: Roboto;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
-    margin: 50px auto;
-    letter-spacing: 5px;
+.skills h2 {
+  text-align: center;
+  margin: 50px auto;
+  font-size: 40px;
+  font-family: Roboto;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--font-color);
+  letter-spacing: 5px;
 }
 
-.skills div.skillsContainer {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 100px 0;
-    justify-content: space-around;
-    padding-left: 250px;
-    animation: activeDiv 1s linear;
+.skills div.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px 0;
+  width: 100%;
+  justify-content: space-around;
+  padding-left: 250px;
+  animation: activeDiv 1s linear;
 }
 
-.skills div.skillsContainer div {
-    flex-basis: 30%;
+.skills div.skills-container div {
+  flex-basis: 30%;
 }
 
 #inactive {
-    display: none;
+  display: none;
 }
 
 @keyframes activeDiv {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 .skills button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    width: 400px;
-    height: 90px;
-    text-transform: uppercase;
-    border: 2px solid #ec1840;
-    color: white;
-    background-color: transparent;
-    letter-spacing: 2px;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 90px;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  text-transform: uppercase;
+  border: 2px solid #ec1840;
+  color: var(--font-color);
+  background-color: transparent;
+  letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .skills button:hover {
-    background: url(https://i.postimg.cc/wBXGXbWN/pixel.png);
-    animation: buttonAnimation 1.5s linear both;
+  background: url(https://i.postimg.cc/wBXGXbWN/pixel.png);
+  animation: buttonAnimation 1.5s linear both;
 }
 
 @keyframes buttonAnimation {
-    0% {
-        background-position-y: 0px;
-    }
-    100% {
-        background-position-y: -711px;
-    }
+  0% {
+    background-position-y: 0px;
+  }
+  100% {
+    background-position-y: -711px;
+  }
 }
 
-/* PORTFOLIO SECTION */
-.portfolio {
-    flex-basis: 100vh;
-    width: 100%;
-    max-height: 650px;
-    background-color: white;
+/* projects SECTION */
+.projects {
+  flex-basis: 100vh;
+  width: 100%;
+  max-height: 650px;
+  background-color: white;
 }
 
-.portfolio h1 {
-    font-size: 40px;
-    font-family: Roboto;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    color: black;
-    margin: 50px auto;
-    letter-spacing: 5px;
+.projects h2 {
+  margin: 50px auto;
+  font-size: 40px;
+  font-family: Roboto;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--font-color-wb);
+  letter-spacing: 5px;
 }
 
-.portfolio div.portfolioContainer {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-between;
+.projects div.projects-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.portfolio .project1 {
-    flex-basis: 33%;
-    height: 400px;
-    background-color: #E8E597;
+.projects .project1 {
+  flex-basis: 33%;
+  height: 400px;
+  background-color: #e8e597;
 }
 
-.portfolio .project2 {
-    flex-basis: 33%;
-    height: 400px;
-    background-color: #9DF2C9;
+.projects .project2 {
+  flex-basis: 33%;
+  height: 400px;
+  background-color: #9df2c9;
 }
 
-.portfolio .project3 {
-    flex-basis: 33%;
-    height: 400px;
-    background-color: #9AA1DB;
+.projects .project3 {
+  flex-basis: 33%;
+  height: 400px;
+  background-color: #9aa1db;
 }
 
-.portfolio h2 {
-    line-height: 400px;
-    font-size: 35px;
-    text-align: center;
+.projects h3 {
+  line-height: 400px;
+  text-align: center;
+  font-size: 35px;
 }
 
 /* CONTACT SECTION */
 .contact {
-    flex-basis: 100vh;
-    width: 100%;
-    max-height: 650px;
+  flex-basis: 100vh;
+  width: 100%;
+  max-height: 650px;
 }
 
-.contact h1 {
-    font-size: 40px;
-    font-family: Roboto;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
-    margin: 50px auto;
-    letter-spacing: 5px;
+.contact h2 {
+  text-align: center;
+  margin: 50px auto;
+  font-size: 40px;
+  font-family: Roboto;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--font-color);
+  letter-spacing: 5px;
 }
 
-.contact div.contactCointainer {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-between;
+.contact div.contact-cointainer {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
-.contact div.findMe {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    flex-basis: 45%;
-    height: 450px;
+.contact div.find-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 45%;
+  height: 450px;
 }
 
-.contact div.findMe div.findMeBox {
-    position: relative;
-    flex-basis: 20%;
-    width: 80%;
-    background-color: rgb(31, 31, 31);
-    transition: 0.8s;
-    border: 1px solid rgb(31, 31, 31);
+.contact div.find-me div.find-me-box {
+  position: relative;
+  flex-basis: 20%;
+  width: 80%;
+  background-color: rgb(31, 31, 31);
+  transition: 0.8s;
+  /* border: 1px solid rgb(31, 31, 31); */
 }
 
-.contact div.findMe div.findMeBox p {
-    position: absolute;
-    top: calc(50% - 10px);
-    left: 5%;
-    color: white;
-    font-size: 20px;
+.contact div.find-me div.find-me-box p {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 5%;
+  color: white;
+  font-size: 20px;
 }
 
-.contact div.findMe div.findMeBox:hover {
-    border: 1px solid #EBC48A;
+.contact div.find-me div.find-me-box:hover {
+  border: 1px solid #ebc48a;
 }
 
-.contact div.findMe i {
-    position: absolute;
-    top: calc(50% - 45px/2);
-    right: 7%;
-    font-size: 45px;
-    color: white;
+.contact div.find-me i {
+  position: absolute;
+  top: calc(50% - 45px / 2);
+  right: 7%;
+  font-size: 45px;
+  color: white;
 }
 
-.contact div.textMe {
-    flex-basis: 45%;
-    height: 450px;
+.contact div.text-me {
+  flex-basis: 45%;
+  height: 450px;
 }
 
-.contact div.textMe form {
-    padding-top: 18px;
+.contact div.text-me form {
+  padding-top: 18px;
 }
 
 input {
-    width: 100%;
-    height: 50px;
-    margin: 10px auto;
-    padding: 0 20px;
-    background-color: rgb(31, 31, 31);
-    color: white;
-    border: 1px solid rgb(31, 31, 31);
-    transition: 0.8s;
+  width: 100%;
+  height: 50px;
+  margin: 10px auto;
+  padding: 0 20px;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  border: 1px solid rgb(31, 31, 31);
+  transition: 0.8s;
 }
 
 textarea {
-    width: 100%;
-    height: 180px;
-    margin: 10px auto;
-    padding: 10px 20px 0;
-    background-color: rgb(31, 31, 31);
-    color: white;
-    border: 1px solid rgb(31, 31, 31);
-    resize: none;
-    transition: 0.8s;
+  width: 100%;
+  height: 180px;
+  margin: 10px auto;
+  padding: 10px 20px 0;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  border: 1px solid rgb(31, 31, 31);
+  resize: none;
+  transition: 0.8s;
 }
 
 input:hover,
 textarea:hover {
-    border: 1px solid #EBC48A;
+  border: 1px solid var(--contact-border-color);
 }
 
 input#submit {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* FOOTER SECTION */
 footer {
-    height: 50px;
-    width: 100%;
-    border-top: 1px solid white;
+  height: 50px;
+  width: 100%;
 }
 
 footer p {
-    font-size: 30px;
-    line-height: 50px;
-    color: white;
-    text-align: center;
+  text-align: center;
+  font-size: 30px;
+  line-height: 50px;
+  color: var(--font-color-nav);
 }
