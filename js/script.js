@@ -22,7 +22,7 @@ document.querySelector(".reload").addEventListener("click", function () {
 
 //dark or light mode
 document.querySelector("span.slider").addEventListener("click", function () {
-    const divContainer = document.querySelector("div.container");
+  const divContainer = document.querySelector("div.container");
   if (lightTheme === false) {
     divContainer.setAttribute("data-theme", "light");
   } else {

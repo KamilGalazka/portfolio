@@ -45,21 +45,15 @@ body {
 /* Navigation on the big screen */
 nav {
   position: relative;
-  flex-basis: 10vh;
+  flex-basis: 100px;
   width: 100%;
   overflow: hidden;
-}
-
-nav div.menu {
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 100%;
 }
 
 nav ul {
   display: flex;
   list-style: none;
+  margin-left: 250px;
 }
 
 nav li {
@@ -68,7 +62,7 @@ nav li {
 }
 
 nav div.button-nav {
-  line-height: 10vh;
+  line-height: 100px;
   position: relative;
 }
 
@@ -95,6 +89,7 @@ nav div.button-nav:hover div.underline {
 
 .switch {
   position: relative;
+  transform: translateY(-5px);
   display: inline-block;
   width: 60px;
   height: 34px;
@@ -164,7 +159,7 @@ header h2 {
   left: 8%;
   line-height: 100px;
   font-size: 50px;
-  animation: nameAnimationH1 2s ease-in-out alternate infinite both;
+  animation: nameAnimationH1 3s linear alternate infinite both;
 }
 
 header h3 {
