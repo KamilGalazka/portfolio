@@ -139,9 +139,8 @@ input:checked + .slider:before {
 /* HEADER SECTION */
 header {
   position: relative;
-  flex-basis: 90vh;
   width: 100%;
-  max-height: 650px;
+  height: 650px;
   overflow: hidden;
   color: var(--font-color);
 }
@@ -149,8 +148,8 @@ header {
 header img {
   position: absolute;
   top: 5%;
-  right: -8%;
-  opacity: 1;
+  right: -150px;
+  opacity: 0.9;
 }
 
 header h2 {
@@ -165,10 +164,6 @@ header h2 {
 header h3 {
   font-weight: 200;
   font-size: 30px;
-}
-
-header h3:nth-of-type(1),
-h3:nth-of-type(2) {
   position: absolute;
   top: 20%;
   left: 1%;
@@ -212,15 +207,14 @@ header h3:nth-of-type(2) {
 /* ABOUT SECTION */
 .about {
   display: flex;
-  flex-basis: 100vh;
   width: 100%;
-  max-height: 650px;
+  height: 650px;
   background-color: white;
+  overflow: hidden;
 }
 
 .about div.about-me-text {
   flex-basis: 40%;
-  height: 100%;
   padding: 50px 10px 0 30px;
 }
 
@@ -271,10 +265,9 @@ header h3:nth-of-type(2) {
 
 /* SKILLS SECTION */
 .skills {
-  flex-basis: 100vh;
   position: relative;
   width: 100%;
-  max-height: 650px;
+  height: 650px;
 }
 
 .skills h2 {
@@ -348,9 +341,8 @@ header h3:nth-of-type(2) {
 
 /* projects SECTION */
 .projects {
-  flex-basis: 100vh;
   width: 100%;
-  max-height: 650px;
+  height: 650px;
   background-color: white;
 }
 
@@ -368,39 +360,84 @@ header h3:nth-of-type(2) {
 .projects div.projects-container {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 
-.projects .project1 {
-  flex-basis: 33%;
+.projects .project1,
+.projects .project2,
+.projects .project3 {
+  flex-basis: 30%;
   height: 400px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px black;
+}
+
+.projects .project1 {
   background-color: #e8e597;
 }
 
+.projects .project1::after,
+.projects .project2::after,
+.projects .project3::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.projects .project1:hover::after,
+.projects .project2:hover::after,
+.projects .project3:hover::after {
+  opacity: 0;
+}
+
 .projects .project2 {
-  flex-basis: 33%;
-  height: 400px;
   background-color: #9df2c9;
 }
 
 .projects .project3 {
-  flex-basis: 33%;
-  height: 400px;
   background-color: #9aa1db;
 }
 
 .projects h3 {
-  line-height: 400px;
   text-align: center;
+  margin-top: 30px;
   font-size: 35px;
+  text-transform: uppercase;
+}
+
+.projects p {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.projects .project1 p:nth-of-type(2),
+.projects .project2 p:nth-of-type(2),
+.projects .project3 p:nth-of-type(2) {
+  margin: 50px;
+  line-height: 30px;
+}
+
+.projects ul {
+  text-align: center;
+  margin-top: 10px;
+  text-transform: uppercase;
+  list-style: none;
 }
 
 /* CONTACT SECTION */
 .contact {
-  flex-basis: 100vh;
   width: 100%;
-  max-height: 650px;
+  height: 650px;
 }
 
 .contact h2 {
@@ -436,7 +473,6 @@ header h3:nth-of-type(2) {
   width: 80%;
   background-color: rgb(31, 31, 31);
   transition: 0.8s;
-  /* border: 1px solid rgb(31, 31, 31); */
 }
 
 .contact div.find-me div.find-me-box p {
@@ -502,13 +538,13 @@ input#submit {
 
 /* FOOTER SECTION */
 footer {
-  height: 50px;
+  height: 100px;
   width: 100%;
 }
 
 footer p {
   text-align: center;
   font-size: 30px;
-  line-height: 50px;
+  line-height: 100px;
   color: var(--font-color-nav);
 }
