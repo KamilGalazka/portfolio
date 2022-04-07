@@ -35,6 +35,7 @@ body {
   position: relative;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
   background: linear-gradient(
     40deg,
     var(--primary-color) 0%,
@@ -42,7 +43,7 @@ body {
   );
 }
 
-/* Navigation on the big screen */
+/* Navigation*/
 nav {
   position: relative;
   flex-basis: 100px;
@@ -53,20 +54,17 @@ nav {
 nav ul {
   display: flex;
   list-style: none;
-  margin-left: 250px;
+  text-align: center;
 }
 
 nav li {
-  flex-basis: 15%;
+  flex-basis: 20%;
+  line-height: 100px;
   overflow: hidden;
 }
 
-nav div.button-nav {
-  line-height: 100px;
-  position: relative;
-}
-
 nav a {
+  position: relative;
   text-decoration: none;
   font-size: 24px;
   color: var(--font-color-nav);
@@ -75,16 +73,18 @@ nav a {
 
 nav div.underline {
   position: absolute;
-  top: 65px;
-  left: -120px;
+  top: 30px;
+  left: -40px;
   height: 2px;
   width: 110px;
+  opacity: 0;
   background-color: var(--font-color-nav);
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 nav div.button-nav:hover div.underline {
   left: 0px;
+  opacity: 1;
 }
 
 .switch {
@@ -148,7 +148,7 @@ header {
 header img {
   position: absolute;
   top: 5%;
-  right: -150px;
+  right: -180px;
   opacity: 0.9;
 }
 
@@ -158,20 +158,20 @@ header h2 {
   left: 8%;
   line-height: 100px;
   font-size: 50px;
-  animation: nameAnimationH1 3s linear alternate infinite both;
+  animation: nameAnimationH2 3s linear alternate infinite both;
 }
 
 header h3 {
-  font-weight: 200;
-  font-size: 30px;
   position: absolute;
-  top: 20%;
-  left: 1%;
-  animation: nameAnimationH2 1s ease-in-out both;
+  top: 140px;
+  opacity: 0;
+  font-weight: 400;
+  font-size: 30px;
+  animation: nameAnimationH3 1s ease-in-out both;
 }
 
 header h3:nth-of-type(2) {
-  top: 50%;
+  top: 350px;
   animation-delay: 1s;
 }
 
@@ -180,7 +180,7 @@ header h3:nth-of-type(2) {
   font-size: 80px;
 }
 
-@keyframes nameAnimationH1 {
+@keyframes nameAnimationH2 {
   0% {
     left: 7.5%;
   }
@@ -194,13 +194,14 @@ header h3:nth-of-type(2) {
   }
 }
 
-@keyframes nameAnimationH2 {
+@keyframes nameAnimationH3 {
   0% {
-    left: -50%;
+    left: -200px;
   }
 
   100% {
-    left: 3%;
+    left: 50px;
+    opacity: 1;
   }
 }
 
@@ -209,8 +210,8 @@ header h3:nth-of-type(2) {
   display: flex;
   width: 100%;
   height: 650px;
-  background-color: white;
   overflow: hidden;
+  background-color: white;
 }
 
 .about div.about-me-text {
@@ -229,7 +230,7 @@ header h3:nth-of-type(2) {
 }
 
 .about div.about-me-text h3 {
-  line-height: 50px;
+  line-height: 40px;
   text-align: justify;
   font-size: 26px;
 }
@@ -287,12 +288,12 @@ header h3:nth-of-type(2) {
   gap: 100px 0;
   width: 100%;
   justify-content: space-around;
-  padding-left: 250px;
   animation: activeDiv 1s linear;
 }
 
 .skills div.skills-container div {
-  flex-basis: 30%;
+  flex-basis: 33%;
+  text-align: center;
 }
 
 #inactive {
@@ -339,7 +340,7 @@ header h3:nth-of-type(2) {
   }
 }
 
-/* projects SECTION */
+/* PROJECTS SECTION */
 .projects {
   width: 100%;
   height: 650px;
@@ -491,7 +492,7 @@ header h3:nth-of-type(2) {
   position: absolute;
   top: calc(50% - 45px / 2);
   right: 7%;
-  font-size: 45px;
+  font-size: 35px;
   color: white;
 }
 
@@ -548,3 +549,239 @@ footer p {
   line-height: 100px;
   color: var(--font-color-nav);
 }
+
+/* MEDIA QUERIES */
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  header img {
+    top: 10%;
+    right: -300px;
+  }
+
+  .about div.about-me-text h3 {
+    line-height: 35px;
+  }
+
+  .contact div.find-me div.find-me-box p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  header img {
+    opacity: 0.2;
+  }
+
+  .contact div.find-me div.find-me-box p {
+    font-size: 18px;
+  }
+
+  .contact div.contact-cointainer {
+    width: 90%;
+  }
+
+  .contact div.find-me {
+    flex-basis: 50%;
+  }
+
+  .contact div.find-me div.find-me-box {
+    width: 90%;
+  }
+
+  .contact div.find-me i {
+    margin-top: 8px;
+    font-size: 30px;
+  }
+
+  .contact div.text-me {
+    flex-basis: 50%;
+  }
+
+  .contact div.text-me form {
+    padding-top: 0px;
+  }
+
+  textarea {
+    height: 215px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about div.about-me-text h3 {
+    line-height: 30px;
+  }
+
+  div.underline {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  header h3 {
+    font-size: 25px;
+  }
+
+  header h2 {
+    font-size: 40px;
+  }
+
+  header h2 span.first-letters {
+    font-size: 60px;
+  }
+
+  .about div.about-me-text h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .projects .project1::after,
+  .projects .project2::after,
+  .projects .project3::after {
+    content: none;
+  }
+
+  .projects .project1 p:nth-of-type(2),
+  .projects .project2 p:nth-of-type(2),
+  .projects .project3 p:nth-of-type(2) {
+    margin: 30px 20px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about div.about-me-text h3 p {
+    margin-top: -10px;
+  }
+
+  .contact div.find-me div.find-me-box p {
+    font-size: 16px;
+  }
+
+  .contact div.find-me i {
+    font-size: 25px;
+  }
+
+  div.menu-burger-bg {
+    position: absolute;
+    top: -125px;
+    right: -125px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #fc8600;
+    z-index: 1;
+    transition: 0.3s ease-in-out;
+  }
+
+  div.menu-burger-button {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  div.menu-burger-el,
+  div.menu-burger-el::after,
+  div.menu-burger-el::before {
+    position: absolute;
+    top: 22px;
+    left: 5px;
+    width: 40px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+  }
+
+  div.menu-burger-el::after {
+    content: "";
+    top: 12px;
+    left: 0px;
+  }
+
+  div.menu-burger-el::before {
+    content: "";
+    top: -12px;
+    left: 0px;
+  }
+
+  div.menu-burger-el.burger-clicked {
+    left: -50px;
+  }
+
+  div.menu-burger-el.burger-clicked::after {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 55px;
+  }
+
+  div.menu-burger-el.burger-clicked::before {
+    transform: rotate(-45deg);
+    top: 0px;
+    left: 55px;
+  }
+
+  div.menu-burger-bg.full-size {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  nav ul.invisible {
+    display: none;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin-top: 150px;
+  }
+
+  nav a {
+    color: black;
+    font-size: 30px;
+    border-bottom: 2px solid black;
+  }
+
+  body.menu-on {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  nav.no-overflow {
+    overflow: visible;
+    z-index: 3;
+  }
+
+  .slider {
+    background-color: white;
+  }
+
+  .slider:before {
+    background-color: black;
+  }
+}
+
+/* @media screen and (max-width: 480px){
+    div.container {
+        display: none;
+    }
+} */
+
+/* @media screen and (max-width: 320px){
+    div.container {
+        display: none;
+    }
+} */

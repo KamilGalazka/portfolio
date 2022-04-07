@@ -31,3 +31,32 @@ document.querySelector("span.slider").addEventListener("click", function () {
 
   lightTheme = !lightTheme;
 });
+
+//hamburger menu
+document
+  .querySelector("div.menu-burger-button")
+  .addEventListener("click", function () {
+    document.querySelector("div.menu-burger-bg").classList.toggle("full-size");
+    document
+      .querySelector("div.menu-burger-el")
+      .classList.toggle("burger-clicked");
+    document.querySelector("nav ul").classList.toggle("invisible");
+    setTimeout(
+      'document.querySelector("nav").classList.toggle("no-overflow")',
+      400
+    );
+    document.body.classList.toggle("menu-on");
+  });
+
+//deactivate classes after closing hamburger menu
+document.querySelectorAll("a.link").forEach((link) =>
+  link.addEventListener("click", () => {
+    document.querySelector("div.menu-burger-bg").classList.toggle("full-size");
+    document
+      .querySelector("div.menu-burger-el")
+      .classList.toggle("burger-clicked");
+    document.querySelector("nav ul").classList.toggle("invisible");
+    document.querySelector("nav").classList.toggle("no-overflow");
+    document.body.classList.toggle("menu-on");
+  })
+);
