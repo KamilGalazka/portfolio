@@ -200,7 +200,7 @@ header h3:nth-of-type(2) {
   }
 
   100% {
-    left: 50px;
+    left: 7.5%;
     opacity: 1;
   }
 }
@@ -769,7 +769,7 @@ footer p {
 
   nav ul {
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 10%;
   }
 
   nav a {
@@ -810,14 +810,62 @@ footer p {
   }
 }
 
-/* @media screen and (max-width: 480px){
-    div.container {
-        display: none;
-    }
-} */
+@media screen and (max-width: 480px) {
+  header h3:nth-of-type(2) {
+    display: none;
+  }
 
-/* @media screen and (max-width: 320px){
-    div.container {
-        display: none;
-    }
-} */
+  header h2::after {
+    content: "junior front-end developer";
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 400;
+    opacity: 0;
+    animation: nameAnimationH3 1s ease-in-out both;
+    animation-delay: 1s;
+  }
+
+  .skills div.skills-container {
+    margin-top: 100px;
+  }
+
+  .skills div.skills-container div img {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+  }
+
+  .contact div.find-me {
+    width: 100%;
+  }
+
+  .contact div.find-me div.find-me-box p {
+    font-size: 16px;
+  }
+
+  .contact div.find-me i {
+    font-size: 20px;
+  }
+
+  .about {
+    height: 1500px;
+  }
+
+  .about div.about-me-photos {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .about div.about-me-photos a {
+    width: 70%;
+    margin: 5px auto;
+  }
+
+  .skills button {
+    width: 300px;
+    font-size: 40px;
+  }
+}

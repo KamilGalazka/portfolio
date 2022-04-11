@@ -1,4 +1,4 @@
-let lightTheme = false;
+let lightTheme = true;
 
 //change opacity on header
 window.addEventListener("scroll", function () {
