@@ -814,6 +814,10 @@ footer p {
   header h3:nth-of-type(2) {
     display: none;
   }
+  
+  header h2 {
+    animation: none;
+  }
 
   header h2::after {
     content: "junior front-end developer";
