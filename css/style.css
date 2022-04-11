@@ -379,6 +379,14 @@ header h3:nth-of-type(2) {
   background-color: #e8e597;
 }
 
+.projects .project2 {
+  background-color: #9df2c9;
+}
+
+.projects .project3 {
+  background-color: #9aa1db;
+}
+
 .projects .project1::after,
 .projects .project2::after,
 .projects .project3::after {
@@ -398,14 +406,6 @@ header h3:nth-of-type(2) {
 .projects .project2:hover::after,
 .projects .project3:hover::after {
   opacity: 0;
-}
-
-.projects .project2 {
-  background-color: #9df2c9;
-}
-
-.projects .project3 {
-  background-color: #9aa1db;
 }
 
 .projects h3 {
@@ -656,16 +656,38 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-  .about div.about-me-text h3 p {
+  .about {
+    height: 1100px;
+    flex-direction: column;
+  }
+
+  .about div.about-me-text {
+    flex-basis: 30%;
+    padding: 50px 20px 0 20px;
+  }
+
+  .about div.about-me-text h3 {
+    line-height: 35px;
     margin-top: -10px;
   }
 
-  .contact div.find-me div.find-me-box p {
-    font-size: 16px;
+  .about div.about-me-photos {
+    flex-basis: 70%;
   }
 
-  .contact div.find-me i {
-    font-size: 25px;
+  .projects {
+    height: 100%;
+  }
+
+  .projects div.projects-container {
+    flex-direction: column;
+    width: 80%;
+    margin-bottom: 100px;
+  }
+
+  .projects div.project2,
+  .projects div.project3 {
+    margin-top: 50px;
   }
 
   div.menu-burger-bg {
@@ -732,6 +754,7 @@ footer p {
   }
 
   div.menu-burger-bg.full-size {
+    position: fixed;
     top: 0;
     right: 0;
     width: 100%;
@@ -746,7 +769,7 @@ footer p {
 
   nav ul {
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 100px;
   }
 
   nav a {
@@ -771,6 +794,19 @@ footer p {
 
   .slider:before {
     background-color: black;
+  }
+
+  .contact {
+    height: 1100px;
+  }
+
+  .contact div.contact-cointainer {
+    display: block;
+  }
+
+  .contact div.find-me {
+    width: 80%;
+    margin: 0 auto 50px auto;
   }
 }
 
